@@ -15,11 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chat', function () {
-    return view('chat');
-});
 
 
-Route::get('/test', function () {
-    return view('test');
-});
+//Route::get('/chat', 'ChatController@chat');
+Route::post('/send', 'ChatController@send');
+Route::post('/saveToSession', 'ChatController@saveToSession');
+Route::post('/getOldMessage', 'ChatController@getOldMessage');
+Route::post('/deleteSession', 'ChatController@deleteSession');
+
+
+// Route::get('/test', function () {
+//     return view('test');
+// });
+// Route::get('/sendtest', 'ChatController@sendtest');
+// Route::get('/check', function () {
+//     return session('chat');
+// });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
